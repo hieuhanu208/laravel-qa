@@ -24,10 +24,7 @@ class User extends Authenticatable
             return $this->hasMany('App\Question');
         }
 
-    public function setTiltleAttribute($value){
-        $this->attributes['title'] = $value;
-        $this->attributes['slug'] = str_slug($value); 
-    }
+    
     /**
      * The attributes that should be hidden for arrays.
      *
