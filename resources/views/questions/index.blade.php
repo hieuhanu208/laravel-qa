@@ -5,10 +5,28 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">All Questions</div>
+                <div class="card-header">
+                    <div class="d-flex align-item-center">
+                            <h2> All Questions</h2> 
+                        <div class="ml-auto">
+                        <a href="{{route('questions.create')}}" class="btn btn-outline-secondary">Ask Questions</a>    
+                        </div>    
+                    </div>
+                    
+                </div>
 
                 <div class="card-body">
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     @foreach ($questions as $question)
+                    @include ('layouts.message')
                         <div class="media">
                           <div class="d-flex flex-column counters">
                             <div class="votes">
