@@ -10530,3 +10530,7 @@ strong {
   margin-top: 10px;
 }
 
+form.form-detele {
+  display: inline;
+}
+
