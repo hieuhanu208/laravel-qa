@@ -16,6 +16,7 @@
                 </div>
 
                 <div class="card-body">
+                        @include ('layouts.message')
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -26,8 +27,9 @@
                         </div>
                     @endif
                     @foreach ($questions as $question)
-                    @include ('layouts.message')
+                   
                         <div class="media">
+                            
                           <div class="d-flex flex-column counters">
                             <div class="votes">
                                 <strong>{{$question->votes}}</strong>
@@ -44,8 +46,14 @@
                             </div>
                           </div>
                           <div class="media-body">
+                                <div class="d-flex align-items-center">
+                                        <h3 class= "mt-0"><a href="{{$question->url}}">{{$question->title}}</a></h3>
+                                        <div class="ml-auto">
+                                            <a href="{{route('questions.edit',$question->id)}} " class="btn btn-sm btn-outline-info">Edit</a>
+                                        </div>
+                                    </div>
 
-                        <h3 class= "mt-0"><a href="{{$question->url}}">{{$question->title}}</a></h3>
+                       
                             <p class="lead">
                               Asked by <a href="{{$question->user->url}}"> {{$question->user->name}}</a>
                               <small class="text-mute"> at {{$question->created_date}}</small>
